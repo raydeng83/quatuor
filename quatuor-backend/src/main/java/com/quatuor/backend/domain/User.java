@@ -22,10 +22,11 @@ public class User {
     private Date birthDate;
     private Gender gender;
 
+    @Column(unique = true)
     private String email;
     private String occupation;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Transient
     private Set<String> hobbies = new HashSet<>();
 
     public Long getUserId() {

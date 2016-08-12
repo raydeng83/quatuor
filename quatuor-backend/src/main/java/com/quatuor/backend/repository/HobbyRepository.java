@@ -1,6 +1,6 @@
 package com.quatuor.backend.repository;
 
-import com.quatuor.backend.domain.User;
+import com.quatuor.backend.domain.Hobby;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,8 +9,6 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Long>{
-    User save(User user);
-
-    User findByEmail (String email);
+public interface HobbyRepository extends CrudRepository<Hobby, Long>{
+    Hobby save(Hobby hobby);
 }

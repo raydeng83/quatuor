@@ -1,11 +1,8 @@
 package com.quatuor.backend.domain;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import java.util.HashSet;
-import java.util.Set;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 
 /**
  * Created by lede on 8/12/16.
@@ -13,11 +10,19 @@ import java.util.Set;
 
 @Entity
 public class Hobby {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long hobbyId;
     private String hobbyName;
+    private Long userId;
 
-    @OneToMany(mappedBy = "hobby", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<UserHobby> userHobbies = new HashSet<>();
+    public Hobby() {}
+
+    public Hobby(String hobbyName, Long userId) {
+        this.hobbyName= hobbyName;
+        this.userId = userId;
+    }
 
     public Long getHobbyId() {
         return hobbyId;
@@ -35,11 +40,11 @@ public class Hobby {
         this.hobbyName = hobbyName;
     }
 
-    public Set<UserHobby> getUserHobbies() {
-        return userHobbies;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUserHobbies(Set<UserHobby> userHobbies) {
-        this.userHobbies = userHobbies;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }
