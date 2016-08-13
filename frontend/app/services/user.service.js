@@ -22,14 +22,14 @@ var UserService = (function () {
         var headers = new http_1.Headers({
             'Content-Type': 'application/json'
         });
-        return this.http.post(this.registerUserUrl, JSON.stringify(user), { headers: headers }).toPromise().then(function () { return user; }).catch(this.handleError);
+        return this.http.post(this.registerUserUrl, JSON.stringify(user), { headers: headers }).map(this.extractData);
     };
     UserService.prototype.checkUsername = function (user) {
         var headers = new http_1.Headers({
             'Content-Type': 'application/json'
         });
         return this.http.post(this.checkUsernameUrl, user.username, { headers: headers })
-            .map(this.extractData).catch(this.handleError);
+            .map(this.extractData);
     };
     UserService.prototype.extractData = function (res) {
         var body = res.json();

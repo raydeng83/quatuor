@@ -2,7 +2,6 @@ import { Injectable }    from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import {User} from "../models/user";
 
-import {Observable}     from 'rxjs/Observable';
 
 
 @Injectable()
@@ -21,7 +20,7 @@ export class UserService {
       'Content-Type': 'application/json'
     });
 
-    return this.http.post(this.registerUserUrl, JSON.stringify(user), {headers: headers}).toPromise().then(() => user).catch(this.handleError);
+    return this.http.post(this.registerUserUrl, JSON.stringify(user), {headers: headers}).map(this.extractData);
   }
 
   checkUsername(user:User) {
@@ -30,11 +29,11 @@ export class UserService {
     });
 
     return this.http.post(this.checkUsernameUrl, user.username, {headers: headers})
-      .map(this.extractData).catch(this.handleError);
+      .map(this.extractData);
   }
 
 
-  private extractData(res:Response) {
+  private extractData(res) {
     let body = res.json();
     return body;
   }
