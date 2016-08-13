@@ -1,3 +1,4 @@
+"use strict";
 var router_1 = require('@angular/router');
 var registration_component_1 = require("./components/registration.component");
 var home_component_1 = require("./components/home.component");

@@ -9,15 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var user_1 = require('../models/user');
+var user_service_1 = require("../services/user.service");
 var RegistrationComponent = (function () {
-    function RegistrationComponent() {
+    function RegistrationComponent(userService) {
+        this.userService = userService;
+        this.user = new user_1.User();
     }
+    RegistrationComponent.prototype.onSubmit = function () {
+        this.userService.registerUser(this.user);
+    };
     RegistrationComponent = __decorate([
         core_1.Component({
             selector: 'registration',
             templateUrl: 'app/components/registration.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [user_service_1.UserService])
     ], RegistrationComponent);
     return RegistrationComponent;
 }());

@@ -9,6 +9,8 @@
     'app':                        'app', // 'dist',
 
     '@angular':                   'node_modules/@angular',
+    //'@angular/router':            'https://npmcdn.com/@angular/router' + routerVer,
+    //'@angular/forms':             'https://npmcdn.com/@angular/forms' + formsVer,
     'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
     'rxjs':                       'node_modules/rxjs'
   };
