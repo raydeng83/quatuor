@@ -9,6 +9,7 @@ import {UserService} from "../services/user.service";
 export class RegistrationComponent {
   user: User = new User();
   usernameExist:boolean = false;
+  emailExist:boolean = false;
 
   constructor(private userService:UserService) {
   }
@@ -29,5 +30,15 @@ export class RegistrationComponent {
     );
   }
 
-
+  checkEmail() {
+    this.emailExist = false;
+    this.userService.checkEmail(this.user).subscribe(
+      user => {
+        if (user.email != null) {
+          this.emailExist = true;
+        }
+      },
+      error => console.log(error)
+    );
+  }
 }

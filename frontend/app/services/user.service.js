@@ -31,12 +31,15 @@ var UserService = (function () {
         return this.http.post(this.checkUsernameUrl, user.username, { headers: headers })
             .map(this.extractData);
     };
-    UserService.prototype.extractData = function (res) {
-        var body = res.json();
-        return body;
+    UserService.prototype.checkEmail = function (user) {
+        var headers = new http_1.Headers({
+            'Content-Type': 'application/json'
+        });
+        return this.http.post(this.checkEmailUrl, user.email, { headers: headers })
+            .map(this.extractData);
     };
-    UserService.prototype.handleError = function (error) {
-        console.error('An error occured', error);
+    UserService.prototype.extractData = function (res) {
+        return res.json();
     };
     UserService = __decorate([
         core_1.Injectable(), 

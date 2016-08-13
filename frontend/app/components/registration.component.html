@@ -9,9 +9,9 @@
            [(ngModel)]="user.password" name="password">
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
+    <label for="exampleInputEmail1">Email address</label> <p *ngIf = "emailExist">Email already exists.</p>
     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" required
-           [(ngModel)]="user.email" name="email">
+           [(ngModel)]="user.email" name="email" (blur)="checkEmail()">
   </div>
 
   <button type="submit" class="btn btn-default">Submit</button>

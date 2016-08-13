@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -16,6 +15,7 @@ var RegistrationComponent = (function () {
         this.userService = userService;
         this.user = new user_1.User();
         this.usernameExist = false;
+        this.emailExist = false;
     }
     RegistrationComponent.prototype.onSubmit = function () {
         this.userService.registerUser(this.user);
@@ -29,6 +29,15 @@ var RegistrationComponent = (function () {
             }
         }, function (error) { return console.log(error); });
     };
+    RegistrationComponent.prototype.checkEmail = function () {
+        var _this = this;
+        this.emailExist = false;
+        this.userService.checkEmail(this.user).subscribe(function (user) {
+            if (user.email != null) {
+                _this.emailExist = true;
+            }
+        }, function (error) { return console.log(error); });
+    };
     RegistrationComponent = __decorate([
         core_1.Component({
             selector: 'registration',
@@ -37,6 +46,6 @@ var RegistrationComponent = (function () {
         __metadata('design:paramtypes', [user_service_1.UserService])
     ], RegistrationComponent);
     return RegistrationComponent;
-}());
+})();
 exports.RegistrationComponent = RegistrationComponent;
 //# sourceMappingURL=registration.component.js.map

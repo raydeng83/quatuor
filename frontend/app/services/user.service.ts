@@ -32,13 +32,19 @@ export class UserService {
       .map(this.extractData);
   }
 
+  checkEmail(user:User) {
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.post(this.checkEmailUrl, user.email, {headers: headers})
+      .map(this.extractData);
+  }
+
 
   private extractData(res) {
-    let body = res.json();
-    return body;
+    return res.json();
   }
 
-  private handleError(error:any) {
-    console.error('An error occured', error);
-  }
+
 }

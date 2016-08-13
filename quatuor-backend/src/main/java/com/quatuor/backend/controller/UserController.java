@@ -43,12 +43,25 @@ public class UserController {
 
     @RequestMapping(value = "/user/username", method = RequestMethod.POST)
     public User findUserByUsername(@RequestBody String username) {
-        return userService.findByUsername(username);
+
+        User user = userService.findByUsername(username);
+
+        if (user == null) {
+            user = new User();
+        }
+
+        return user;
     }
 
     @RequestMapping(value = "/user/email", method = RequestMethod.POST)
     public User findByEmail(@RequestBody String email) {
-        return userService.findByEmail(email);
+        User user = userService.findByEmail(email);
+
+        if (user == null) {
+            user = new User();
+        }
+
+        return user;
     }
 
 
