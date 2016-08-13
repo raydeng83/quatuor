@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var navbar_component_1 = require('./components/navbar.component');
+require('./rxjs-operators');
 var AppComponent = (function () {
     function AppComponent() {
     }

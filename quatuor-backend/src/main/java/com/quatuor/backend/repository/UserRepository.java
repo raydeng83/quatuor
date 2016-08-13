@@ -13,4 +13,7 @@ public interface UserRepository extends CrudRepository<User, Long>{
     User save(User user);
 
     User findByEmail (String email);
+
+    User findByUsername(String username);
+
 }

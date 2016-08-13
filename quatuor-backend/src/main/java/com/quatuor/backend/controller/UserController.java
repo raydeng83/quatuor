@@ -40,4 +40,16 @@ public class UserController {
 
         return user;
     }
+
+    @RequestMapping(value = "/user/username", method = RequestMethod.POST)
+    public User findUserByUsername(@RequestBody String username) {
+        return userService.findByUsername(username);
+    }
+
+    @RequestMapping(value = "/user/email", method = RequestMethod.POST)
+    public User findByEmail(@RequestBody String email) {
+        return userService.findByEmail(email);
+    }
+
+
 }

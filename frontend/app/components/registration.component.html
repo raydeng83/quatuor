@@ -1,8 +1,7 @@
 <form (ngSubmit)="onSubmit()"> {{user.username}}, {{user.password}}, {{user.email}}
   <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" class="form-control" id="username" placeholder="Username" required [(ngModel)]="user.username"
-           name="username">
+    <label for="username">Username</label> <p *ngIf = "usernameExist">Username already exists.</p>
+    <input type="text" class="form-control" id="username" placeholder="Username" required [(ngModel)]="user.username" name="username" (blur)="checkUsername()">
   </div>
   <div class="form-group">
     <label for="password">Password</label>

@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,17 +10,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-require('rxjs/add/operator/toPromise');
 var UserService = (function () {
     function UserService(http) {
         this.http = http;
         this.registerUserUrl = 'http://127.0.0.1:8080/user/register';
+        this.checkUsernameUrl = 'http://127.0.0.1:8080/user/username';
+        this.checkEmailUrl = 'http://127.0.0.1:8080/user/email';
     }
+    //register a user
     UserService.prototype.registerUser = function (user) {
         var headers = new http_1.Headers({
             'Content-Type': 'application/json'
         });
         return this.http.post(this.registerUserUrl, JSON.stringify(user), { headers: headers }).toPromise().then(function () { return user; }).catch(this.handleError);
+    };
+    UserService.prototype.checkUsername = function (user) {
+        var headers = new http_1.Headers({
+            'Content-Type': 'application/json'
+        });
+        return this.http.post(this.checkUsernameUrl, user.username, { headers: headers })
+            .map(this.extractData).catch(this.handleError);
+    };
+    UserService.prototype.extractData = function (res) {
+        var body = res.json();
+        return body;
     };
     UserService.prototype.handleError = function (error) {
         console.error('An error occured', error);
@@ -29,6 +43,6 @@ var UserService = (function () {
         __metadata('design:paramtypes', [http_1.Http])
     ], UserService);
     return UserService;
-})();
+}());
 exports.UserService = UserService;
 //# sourceMappingURL=user.service.js.map
