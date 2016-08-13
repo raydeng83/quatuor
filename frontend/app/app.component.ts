@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import {HomeComponent} from './components/home.component';
+import {NavbarComponent} from './components/navbar.component';
+
 
 @Component({
     selector: 'my-app',
-    directives: [HomeComponent],
-    template: `
-      <home></home>
-    `
+    directives: [NavbarComponent],
+    templateUrl: 'app/app.component.html'
+
+
 })
 export class AppComponent {
 }
