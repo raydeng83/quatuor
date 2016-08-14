@@ -42,7 +42,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/username", method = RequestMethod.POST)
-    public User findUserByUsername(@RequestBody String username) {
+    public User findByUsername(@RequestBody String username) {
 
         User user = userService.findByUsername(username);
 

@@ -20,7 +20,7 @@ export class RegistrationComponent {
 
   checkUsername() {
     this.usernameExist = false;
-    this.userService.checkUsername(this.user).subscribe(
+    this.userService.findByUsername(this.user).subscribe(
       user => {
         if (user.username != null) {
           this.usernameExist = true;
@@ -32,7 +32,7 @@ export class RegistrationComponent {
 
   checkEmail() {
     this.emailExist = false;
-    this.userService.checkEmail(this.user).subscribe(
+    this.userService.findByEmail(this.user).subscribe(
       user => {
         if (user.email != null) {
           this.emailExist = true;

@@ -24,14 +24,16 @@ var UserService = (function () {
         });
         return this.http.post(this.registerUserUrl, JSON.stringify(user), { headers: headers }).map(this.extractData);
     };
-    UserService.prototype.checkUsername = function (user) {
+    UserService.prototype.fingUserByEmail = function (user) {
+    };
+    UserService.prototype.findByUsername = function (user) {
         var headers = new http_1.Headers({
             'Content-Type': 'application/json'
         });
         return this.http.post(this.checkUsernameUrl, user.username, { headers: headers })
             .map(this.extractData);
     };
-    UserService.prototype.checkEmail = function (user) {
+    UserService.prototype.findByEmail = function (user) {
         var headers = new http_1.Headers({
             'Content-Type': 'application/json'
         });

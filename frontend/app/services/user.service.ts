@@ -23,7 +23,11 @@ export class UserService {
     return this.http.post(this.registerUserUrl, JSON.stringify(user), {headers: headers}).map(this.extractData);
   }
 
-  checkUsername(user:User) {
+  fingUserByEmail(user: User) {
+
+  }
+
+  findByUsername(user:User) {
     let headers = new Headers({
       'Content-Type': 'application/json'
     });
@@ -32,7 +36,7 @@ export class UserService {
       .map(this.extractData);
   }
 
-  checkEmail(user:User) {
+  findByEmail(user:User) {
     let headers = new Headers({
       'Content-Type': 'application/json'
     });

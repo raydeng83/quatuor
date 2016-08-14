@@ -21,6 +21,7 @@ public class User {
     @Column(unique = true)
     private String username;
     private String password;
+    private String displayName;
     private String firstName;
     private String lastName;
     private Date birthDate;
@@ -29,6 +30,15 @@ public class User {
     @Column(unique = true)
     private String email;
     private String occupation;
+    private String country;
+    private short zipcode;
+    private String timezone;
+    private String height;
+    private String bodyType;
+    private String marriageStatus;
+    private String kids;
+    private String birthPlace;
+    private String race;
 
     @Transient
     private Set<String> hobbies = new HashSet<>();
@@ -111,5 +121,85 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public short getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(short zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public String getTimezone() {
+        return timezone;
+    }
+
+    public void setTimezone(String timezone) {
+        this.timezone = timezone;
+    }
+
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height;
+    }
+
+    public String getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(String bodyType) {
+        this.bodyType = bodyType;
+    }
+
+    public String getMarriageStatus() {
+        return marriageStatus;
+    }
+
+    public void setMarriageStatus(String marriageStatus) {
+        this.marriageStatus = marriageStatus;
+    }
+
+    public String getKids() {
+        return kids;
+    }
+
+    public void setKids(String kids) {
+        this.kids = kids;
+    }
+
+    public String getBirthPlace() {
+        return birthPlace;
+    }
+
+    public void setBirthPlace(String birthPlace) {
+        this.birthPlace = birthPlace;
+    }
+
+    public String getRace() {
+        return race;
+    }
+
+    public void setRace(String race) {
+        this.race = race;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 }
