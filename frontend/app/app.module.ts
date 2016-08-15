@@ -9,6 +9,7 @@ import {RegistrationComponent} from "./components/registration.component";
 import {NavbarComponent} from "./components/navbar.component";
 import {HomeComponent} from "./components/home.component";
 import {UserService} from "./services/user.service";
+import {LoginService} from "./services/login.service";
 
 @NgModule({
   imports: [
@@ -23,7 +24,7 @@ import {UserService} from "./services/user.service";
     NavbarComponent,
     HomeComponent
   ],
-  providers:[UserService],
+  providers:[UserService, LoginService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {

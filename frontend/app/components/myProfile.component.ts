@@ -11,6 +11,5 @@ export class MyProfileComponent {
   user: User;
 
   constructor(userService: UserService) {
-    this.user=userService.fingUserByEmail();
   }
 }
